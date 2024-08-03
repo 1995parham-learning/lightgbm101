@@ -1,0 +1,32 @@
+---
+apiVersion: mlops.seldon.io/v1alpha1
+kind: Model
+metadata:
+  name: cifar10
+spec:
+  secretName: seldon-minio-secret
+  storageUri: "s3://seldon/tf_cifar10"
+  requirements:
+  - tensorflow
+---
+apiVersion: mlops.seldon.io/v1alpha1
+kind: Model
+metadata:
+  name: cifar10-outlier
+spec:
+  secretName: seldon-minio-secret
+  storageUri: "s3://seldon/outlier-detector"
+  requirements:
+    - mlserver
+    - alibi-detect
+---
+apiVersion: mlops.seldon.io/v1alpha1
+kind: Model
+metadata:
+  name: cifar10-drift
+spec:
+  secretName: seldon-minio-secret
+  storageUri: "s3://seldon/drift-detector"
+  requirements:
+    - mlserver
+    - alibi-detect
