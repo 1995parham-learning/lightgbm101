@@ -69,6 +69,45 @@ num_round = 10
 bst = lgb.train(param, train_data, num_round, valid_sets=[validation_data])
 ```
 
+Training with 5-fold CV (Cross-Validation):
+
+```python
+lgb.cv(param, train_data, num_round, nfold=5)
+```
+
+After training, the model can be saved:
+
+```python
+bst.save_model('model.txt')
+```
+
+The trained model can also be dumped to JSON format:
+
+```python
+json_model = bst.dump_model()
+```
+
+A saved model can be loaded:
+
+```python
+bst = lgb.Booster(model_file='model.txt')  # init model
+```
+
+A model that has been trained or loaded can perform predictions on datasets:
+
+```python
+# 7 entities, each contains 10 features
+rng = np.random.default_rng()
+data = rng.uniform(size=(7, 10))
+ypred = bst.predict(data)
+```
+
+If early stopping is enabled during training, you can get predictions from the best iteration with `bst.best_iteration`:
+
+```python
+ypred = bst.predict(data, num_iteration=bst.best_iteration)
+```
+
 ---
 
 ## Features 🤩
