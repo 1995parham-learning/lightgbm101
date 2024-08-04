@@ -178,7 +178,7 @@ _Leaf-wise (Best-first) Tree Growth_
 
 Most decision tree learning algorithms grow trees by level (depth)-wise.
 
-<img src="/level-wise.webp" alt="level-wise" class="rounded shadow h-60 basis-1/4" />
+<img src="/level-wise.webp" alt="level-wise" class="rounded shadow h-60 basis-1/4 m-auto" />
 
 ---
 
@@ -188,4 +188,4 @@ LightGBM grows trees leaf-wise (best-first). It will choose the leaf with max de
 Leaf-wise may cause over-fitting when `#data` is small, so LightGBM includes the `max_depth` parameter
 to limit tree depth. However, trees still grow leaf-wise even when `max_depth` is specified.
 
-<img src="/leaf-wise.webp" alt="leaf-wise" class="rounded shadow h-60 basis-1/4" />
+<img src="/leaf-wise.webp" alt="leaf-wise" class="rounded shadow h-60 basis-1/4 m-auto" />
