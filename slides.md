@@ -138,7 +138,7 @@ ypred = bst.predict(data, num_iteration=bst.best_iteration)
 
 ### Optimization in Speed and Memory Usage
 
-Many boosting tools use pre-sort-based algorithms (e.g. default algorithm in xgboost) for decision tree learning.
+Many boosting tools use pre-sort-based algorithms (e.g. default algorithm in `xgboost`) for decision tree learning.
 It is a simple solution, **but not easy to optimize**.
 
 LightGBM uses **histogram-based algorithms**, which bucket continuous feature (attribute) values into discrete bins.
@@ -171,3 +171,21 @@ This speeds up training and reduces memory usage. Advantages of histogram-based 
 ### Sparse Optimization
 
 Need only `O(2 * #non_zero_data)` to construct histogram for sparse features.
+
+### Optimization in Accuracy
+
+_Leaf-wise (Best-first) Tree Growth_
+
+Most decision tree learning algorithms grow trees by level (depth)-wise.
+
+<img src="/level-wise.webp" alt="level-wise" class="rounded shadow h-60 basis-1/4" />
+
+---
+
+## Features (Cont'd) 🤩
+
+LightGBM grows trees leaf-wise (best-first). It will choose the leaf with max delta loss to grow.
+Leaf-wise may cause over-fitting when `#data` is small, so LightGBM includes the `max_depth` parameter
+to limit tree depth. However, trees still grow leaf-wise even when `max_depth` is specified.
+
+<img src="/leaf-wise.webp" alt="leaf-wise" class="rounded shadow h-60 basis-1/4" />
