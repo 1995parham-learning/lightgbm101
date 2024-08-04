@@ -201,3 +201,9 @@ needs to grow very deep to achieve good accuracy.
 Instead of one-hot encoding, the optimal solution is to split on a categorical feature by partitioning its categories
 into 2 subsets. If the feature has `k` categories, there are `2^(k-1) - 1` possible partitions. But there is an efficient
 solution for regression trees. It needs about `O(k * log(k))` to find the optimal partition.
+
+## Optimization in Network Communication
+
+It only needs to use collective communication algorithms, like 'All reduce', 'All gather' and 'Reduce scatter',
+in distributed learning of LightGBM. LightGBM implements state-of-the-art algorithms.
+These collective communication algorithms can provide much better performance than point-to-point communication.
