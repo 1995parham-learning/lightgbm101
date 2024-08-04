@@ -189,3 +189,15 @@ Leaf-wise may cause over-fitting when `#data` is small, so LightGBM includes the
 to limit tree depth. However, trees still grow leaf-wise even when `max_depth` is specified.
 
 <img src="/leaf-wise.webp" alt="leaf-wise" class="rounded shadow h-60 basis-1/4 m-auto" />
+
+---
+
+### Optimal Split for Categorical Features
+
+It is common to represent categorical features with one-hot encoding, but this approach is suboptimal for tree learners.
+Particularly for high-cardinality categorical features, a tree built on one-hot features tends to be unbalanced and
+needs to grow very deep to achieve good accuracy.
+
+Instead of one-hot encoding, the optimal solution is to split on a categorical feature by partitioning its categories
+into 2 subsets. If the feature has `k` categories, there are `2^(k-1) - 1` possible partitions. But there is an efficient
+solution for regression trees. It needs about `O(k * log(k))` to find the optimal partition.
