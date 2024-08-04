@@ -29,6 +29,30 @@ By Elahe Dastan
 
 ---
 
+## Boosting
+
+In machine learning, boosting is an _ensemble_ meta-algorithm for primarily reducing bias, variance.
+It is used in _supervised learning_ and a family of machine learning algorithms that **convert weak learners
+to strong ones**.
+
+---
+
+## Boosting (Cont'd)
+
+While boosting is not algorithmically constrained, most boosting algorithms consist of iteratively learning weak
+classifiers with respect to a distribution and adding them to a final strong classifier. When they are added, they are
+weighted in a way that is related to the weak learners' accuracy.
+
+The main variation between many boosting algorithms is their method of weighting training data points and hypotheses.
+
+---
+
+## LightGBM
+
+LightGBM is a gradient boosting framework that uses tree based learning algorithms.
+
+---
+
 ## Installation ⚙️
 
 The preferred way to install LightGBM is via pip:
@@ -139,3 +163,11 @@ This speeds up training and reduces memory usage. Advantages of histogram-based 
     to store training data
   - No need to store additional information for pre-sorting feature values
 - _Reduce communication cost for distributed learning_
+
+---
+
+## Features (Cont'd) 🤩
+
+### Sparse Optimization
+
+Need only `O(2 * #non_zero_data)` to construct histogram for sparse features.
