@@ -29,6 +29,22 @@ By Elahe Dastan
 
 ---
 
+## Bagging vs Boosting
+
+As we know, _Ensemble learning_ helps improve machine learning results by **combining several models**.
+
+1. [Bagging]{style="color:cyan"}: It is a homogeneous weak learners’ model that learns from each other independently in parallel and combines them for determining the model average.
+2. [Boosting]{style="color:cyan"}: It is also a homogeneous weak learners’ model but works differently from Bagging. In this model, learners learn sequentially and adaptively to improve model predictions of a learning algorithm.
+
+---
+
+## Bagging vs Boosting (Cont'd)
+
+<img src="/Bagging.png" alt="leaf-wise" class="rounded shadow h-50 basis-1/4 m-auto p-1" />
+<img src="/Boosting.png" alt="leaf-wise" class="rounded shadow h-50 basis-1/4 m-auto p-1" />
+
+---
+
 ## Boosting
 
 In machine learning, boosting is an _ensemble_ meta-algorithm for primarily reducing bias, variance.
@@ -49,7 +65,7 @@ The main variation between many boosting algorithms is their method of weighting
 
 ## LightGBM
 
-LightGBM is a gradient boosting framework that uses tree based learning algorithms.
+LightGBM is a _gradient boosting framework_ that uses **tree based learning algorithms**.
 
 ---
 
